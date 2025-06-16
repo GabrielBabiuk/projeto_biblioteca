@@ -9,21 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
-name: Checkout do código
-      uses: actions/checkout@v4
+      - name: Checkout do código
+        uses: actions/checkout@v4
 
-      
-name: Login no Docker Hub
-      uses: docker/login-action@v3
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login no Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      
-name: Build da imagem Docker
-      run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/projeto-biblioteca-ti:latest .
+      - name: Build da imagem Docker
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/projeto-biblioteca-ti:latest .
 
-      
-name: Push da imagem para o Docker Hub
-      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/projeto-biblioteca-ti:latest
+      - name: Push da imagem para o Docker Hub
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/projeto-biblioteca-ti:latest
