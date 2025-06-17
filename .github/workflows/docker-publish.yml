@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # ou troque para a branch que você deseja monitorar
+      - main  # Altere se sua branch for diferente
 
 jobs:
   build-and-push:
